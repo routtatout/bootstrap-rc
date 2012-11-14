@@ -29,12 +29,30 @@
           <li><%= link_to "Contact Us" %></li>
           <li><%= link_to "Cart" %></li>
         </ul>
+        <a class="btn" href="#">
+  <i class="icon-refresh"></i> Refresh</a>
+<a class="btn btn-success" href="#">
+  <i class="icon-shopping-cart icon-large"></i> Checkout</a>
+<a class="btn btn-large btn-primary" href="#">
+  <i class="icon-comment"></i> Comment</a>
+<a class="btn btn-danger" href="#">
+  <i class="icon-trash icon-large"></i> Delete</a>
+<a class="btn btn-small" href="#">
+  <i class="icon-cog"></i> Settings</a>
+<a class="btn btn-small btn-info" href="#">
+  <i class="icon-info-sign"></i> More Info</a>
       </div>
     </div>
   </div>
 </div>
 
 <div class="container">
+   <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <a class="close" data-dismiss="alert">x</a>
+      <%= msg  %>
+    </div>
+  <% end %>
   <div class="row">
     <div class="span9"><%= yield %></div>
     <div class="span3">
